@@ -1,6 +1,7 @@
-
+var Main_scene = new Scene("Main", {
+    
+})
 
 window.onload = () => {
-    init(true, {"width" : 640, "height" : 400});
-    start();
+    
 }

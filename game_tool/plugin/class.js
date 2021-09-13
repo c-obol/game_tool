@@ -1,5 +1,5 @@
 class Scene {
-    constructor (name, option) {
+    constructor (name = String, option = Object) {
         this.name = name;
 
         var init_setting;
@@ -35,27 +35,33 @@ class Scene {
     }
 
     setup () {
-        for (var i = 0; i < scene.length; i++) {
-            this.mecro[i].setup();
+        for (var i = 0; i < Object.keys(this.mecro).length; i++) {
+            this.mecro[Object.keys(this.mecro)[i]].setup();
+        }
+        for (var i = 0; i < this.layer.length; i++) {
             this.layer[i].setup();
         }
     }
     update () {
-        for (var i = 0; i < scene.length; i++) {
-            this.mecro[i].setup();
-            this.layer[i].setup();
+        for (var i = 0; i < Object.keys(this.mecro).length; i++) {
+            this.mecro[Object.keys(this.mecro)[i]].update();
+        }
+        for (var i = 0; i < this.layer.length; i++) {
+            this.layer[i].update();
         }
     }
     render () {
-        for (var i = 0; i < scene.length; i++) {
-            this.mecro[i].setup();
-            this.layer[i].setup();
+        for (var i = 0; i < Object.keys(this.mecro).length; i++) {
+            this.mecro[Object.keys(this.mecro)[i]].render();
+        }
+        for (var i = 0; i < this.layer.length; i++) {
+            this.layer[i].render();
         }
     }
 }
 
 class Mecro {
-    constructor (name) {
+    constructor (name = String) {
 
     }
 
@@ -71,7 +77,7 @@ class Mecro {
 }
 
 class Layer {
-    constructor (name, option) {
+    constructor (name = String, option = Object) {
 
     }
 
@@ -87,7 +93,7 @@ class Layer {
 }
 
 class Sprite {
-    constructor(name, option) {
+    constructor(name = String, option = Object) {
         this.type = option.type;
         this.position = option.position;
     }
